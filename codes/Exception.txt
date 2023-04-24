@@ -1,0 +1,29 @@
+1)DECLARE
+c_addr Customer_addresses.addresses%type := 'test';
+my_exception EXCEPTION;
+BEGIN
+IF LENGTH(c_addr) < 5 THEN
+RAISE my_exception;
+END IF;
+EXCEPTION
+WHEN my_exception THEN 
+dbms_output.put_line('not enough characters');
+END;
+
+2)DECLARE
+cp_id Cust_payment.cust_pay_ID%type := 2;
+acc_num Cust_payment.account_number%type;
+ex_invalid_id EXCEPTION;
+BEGIN
+IF cp_id <= 0 THEN
+RAISE ex_invalid_id;
+ELSE
+SELECT account_number INTO acc_num
+FROM Cust_payment
+WHERE cust_pay_ID = cp_id;
+dbms_output.put_line('Account number: '|| acc_num);
+END IF;
+EXCEPTION
+WHEN ex_invalid_id THEN 
+dbms_output.put_line('Incorrect id!');
+END;

@@ -1,0 +1,44 @@
+1) Procedure which does group by information:
+
+CREATE OR REPLACE PROCEDURE totalQuantity_by_item AS
+  CURSOR c_quantity IS
+    SELECT SKU, SUM(quantity) AS total_quantity
+    FROM product_item
+    GROUP BY SKU;
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('   Item     Total Quantity');
+  DBMS_OUTPUT.PUT_LINE('----------  --------------');
+  
+  FOR quantity_by_item IN c_quantity LOOP
+    DBMS_OUTPUT.PUT_LINE(quantity_by_item.sku || '  ' || quantity_by_item.total_quantity);
+  END LOOP;
+END;
+/
+BEGIN
+totalQuantity_by_item;
+END;
+/
+
+2) Procedure which uses SQL%ROWCOUNT to determine the number of rows affected
+
+CREATE OR REPLACE PROCEDURE update_item_price (
+    c_product_id IN NUMBER,
+    c_new_price IN NUMBER
+)
+AS
+BEGIN
+    UPDATE Product_Item
+    SET price = c_new_price
+    WHERE product_id = c_product_id;
+    
+    DBMS_OUTPUT.PUT_LINE('Number of prices updated: ' || SQL%ROWCOUNT);
+END;
+/
+DECLARE
+   c_product_id := 10;
+   c _new_price := 549900;
+BEGIN
+   update_item_price (c_product_id, c_new_price);
+END;
+/
+

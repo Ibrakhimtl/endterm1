@@ -1,0 +1,70 @@
+1)
+create or replace function order_count
+return int
+as
+o_count int;
+begin
+select count(*) into o_count from orders;
+return o_count ;
+END;
+/
+
+2)
+select order_count from dual;
+
+3)
+create or replace function order1_count(
+    p_method varchar,
+    p_status varchar
+)
+return int
+as
+o_count int;
+begin
+select count(*) into o_count
+from orders
+where order_method=p_method
+and order_status=p_status;
+return o_count;
+end;
+/
+
+4)
+select order1_count('By plane','proccesing') from dual;
+
+5)
+create or replace function review_count(
+    r_cust int,
+    r_rate varchar
+)
+return int
+as
+r_count int;
+begin
+select count(*) into r_count from Cust_review
+where r_cust=Cust_ID 
+and r_rate=rate;
+return r_count;
+end;
+/
+
+6)
+select review_count(2,'3') from dual;
+
+7)
+create or replace function review_count1(
+    r1_rate varchar
+)
+return int
+as
+r1_count int;
+begin
+select count(*) into r1_count
+from Cust_review
+where r1_rate<rate ;
+return r1_count;
+end;
+/
+
+8)
+select review_count1('3') from dual;

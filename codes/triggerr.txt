@@ -1,0 +1,159 @@
+Table 1)
+create or replace TRIGGER rows_counter
+BEFORE INSERT ON CUSTOMER
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM CUSTOMER;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 2)
+create or replace TRIGGER Addresses_rows_counter
+BEFORE INSERT ON Addresses
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Addresses;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 3)
+create or replace TRIGGER Customer_addresses_rows_counter
+BEFORE INSERT ON Customer_addresses
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Customer_addresses;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 4)
+create or replace TRIGGER Customer_payment_rows_counter
+BEFORE INSERT ON Customer_payment
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Customer_payment;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 5)
+create or replace TRIGGER payment_type_rows_counter
+BEFORE INSERT ON payment_type
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM payment_type;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 6)
+create or replace TRIGGER Category_rows_counter
+BEFORE INSERT ON Category
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Category;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 7)
+create or replace TRIGGER Products_rows_counter
+BEFORE INSERT ON Products
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Products;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 8)
+create or replace TRIGGER Product_properties_rows_counter
+BEFORE INSERT ON Product_properties
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Product_properties;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 9)
+create or replace TRIGGER Product_property_option_rows_counter
+BEFORE INSERT ON Product_property_option
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Product_property_option;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 10`)
+create or replace TRIGGER Product_Item_rows_counter
+BEFORE INSERT ON Product_Item
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Product_Item;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 11)
+create or replace TRIGGER Product_Conf_rows_counter
+BEFORE INSERT ON Product_Conf
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Product_Conf;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 12)
+create or replace TRIGGER Cart table_rows_counter
+BEFORE INSERT ON Cart table
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Cart table;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 13)
+create or replace TRIGGER Cart_Item_rows_counter
+BEFORE INSERT ON Cart_Item
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Cart_Item;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 14)
+create or replace TRIGGER Orders_rows_counter
+BEFORE INSERT ON Orders
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Orders;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 15)
+create or replace TRIGGER Order_Line_rows_counter
+BEFORE INSERT ON Order_Line
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Order_Line;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
+
+Table 16)
+create or replace TRIGGER Cust_review_rows_counter
+BEFORE INSERT ON Cust_review
+DECLARE 
+row_num NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO row_num FROM Cust_review;
+  dbms_output.put_line('Number of rows before insert was: ' || row_num);
+END;
